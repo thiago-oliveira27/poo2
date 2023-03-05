@@ -11,26 +11,22 @@ public class ex2 {
 			//Ao terminar a leitura, o programa mostra os caracteres e a quantidade de cada um.
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
-		String um;
-		System.out.println("Digite a String:");
-		um = sc.nextLine();
-		int stringSize = um.length();
-
-        Map<Character,Integer> count = new HashMap<Character,Integer>();
+		Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite uma string: ");
+        String str = scanner.nextLine();
         
-        for(int i=0;i<um.length();i++) {
-        	count.put(um.charAt(i),0);
-        
+        Map<Character, Integer> contador = new HashMap<>();
+        for (char c : str.toCharArray()) {
+            if (contador.containsKey(c)) {
+                contador.put(c, contador.get(c) + 1);
+            } else {
+                contador.put(c, 1);
+            }
         }
-        
-       for(int i=0;i<count.size();i++) {
-    	   count.put(um.charAt(i),  um.charAt(i)+1);
-       }
-		
-       for(int i=0;i<count.size();i++) {
-       }
-       System.out.println(count.values());
-	}
+        System.out.println("Caracteres e suas repetições:");
+        for (Map.Entry<Character, Integer> entry : contador.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
 
 }
