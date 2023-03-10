@@ -1,4 +1,4 @@
-package lab1.ex1;
+package lab1.ex3;
 
 import java.io.File;
 import java.io.FileWriter;
