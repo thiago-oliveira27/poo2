@@ -51,7 +51,7 @@ public class Main {
 			
 		}
 		
-		System.out.println("\n*****Chamando os metodos para cada atleta do VETOR...*****\n");
+	System.out.println("\n*****Chamando os metodos para cada atleta do VETOR...*****\n");
 		for(Atleta atl : atletasVet) {
 			int aquece = ram.nextInt(60);
 			System.out.print("Atleta: " + atl.getNome() + " - ");
