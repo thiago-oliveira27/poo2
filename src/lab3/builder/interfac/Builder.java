@@ -1,8 +1,15 @@
 package lab3.builder.interfac;
 
+import lab3.builder.objProduct.Tribe;
+
 public interface Builder {
 	
-	void setAtb1(String atb1);
-	void setAtb2(String atb2);
-	void setAtb3(String atb3);
+	void setName(String name);
+	void setProfession(String profession);
+	void setEquipment(String equipment);
+	void setTribe(Tribe tribe);
+	void setHeight(float height);
+	void setClotheCollor(String clotheCollor);
+	void setHairCollor(String hairCollor);
+
 }
