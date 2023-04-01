@@ -38,7 +38,7 @@ public class RPGCharacter{
 		this.profession = profession;
 	}
 
-	public String getequipment() {
+	public String getEquipment() {
 		return equipment;
 	}
 
@@ -87,8 +87,9 @@ public class RPGCharacter{
 
 	@Override
 	public String toString() {
-		return "RPGCharacter [name=" + name + ", profession=" + profession + ", equipment=" + equipment + ", tribe="
-				+ tribe + ", height=" + height + ", clotheCollor=" + clotheCollor + ", hairCollor=" + hairCollor + "]";
+		return "\n" + name + " | " + profession + " | Equipment: " + equipment + " | Tribe: "
+				+ tribe + " | Height: " + height + " | ClotheCollor: " + clotheCollor + 
+				" | Hair Collor: " + hairCollor;
 	}
 	 
 	
