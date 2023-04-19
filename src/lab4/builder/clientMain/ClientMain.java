@@ -11,13 +11,14 @@ public class ClientMain {
 		
 		Director director = new Director(); // The one who knows how to build
 		CharacterBuilder builder = new CharacterBuilder(); // The one who knows what to build
-		
-		
+			
 		director.constructCharacter(builder);	
 		RPGCharacter myCharacter = builder.getResult();
 		System.out.println(myCharacter);
 		
 		GameBoard._game_start_(myCharacter);
+		
+	
 	
 	}
 

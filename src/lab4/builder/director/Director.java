@@ -4,8 +4,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import lab4.builder.interfac.Builder;
-import lab4.builder.objProduct.RPGCharacter;
 import lab4.builder.objProduct.Tribe;
+import lab4.utils.Print;
 
 public class Director {
 
@@ -13,27 +13,28 @@ public class Director {
 		
 		Locale.setDefault(Locale.US);
 		Scanner rd = new Scanner(System.in);
+		final int FINAL_PRINT = 4;
 		
 		String name;
 		int tribe = 0;
 		
-		print("Welcome to the game", 25); 
+		Print.print("Welcome to the game", FINAL_PRINT); 
 		
-		print("Lets get started by creating your character", 25);
+		Print.print("Lets get started by creating your character", FINAL_PRINT);
 		System.out.print("Loading "); 
 		charging(10);
 
-		print("\n\nType the character name: ", 25);
+		Print.print("\n\nType the character name: ", FINAL_PRINT);
 		builder.setName(name = rd.nextLine());		
 
-		print("\nType the profession: ", 25);
+		Print.print("\nType the profession: ", FINAL_PRINT);
 		builder.setProfession(rd.nextLine());
 
-		print("\nType the equipament you're going to use: ", 25);
+		Print.print("\nType the equipament you're going to use: ", FINAL_PRINT);
 		builder.setEquipment(rd.nextLine());
 		
-		print("\nType the tribe you belong: "
-				 + "1 - FIRE, 2 - WATER, 3 - EARTH, 4 - AIR", 25);
+		Print.print("\nType the tribe you belong: "
+				 + "1 - FIRE, 2 - WATER, 3 - EARTH, 4 - AIR", FINAL_PRINT);
 		tribe = rd.nextInt();
 		
 			switch (tribe) {
@@ -51,16 +52,16 @@ public class Director {
 					break;
 			}
 		
-		print("\nType your height: ", 25);
+		Print.print("\nType your height: ", FINAL_PRINT);
 		builder.setHeight(rd.nextFloat());
 		rd.nextLine();
-		print("\nType the clothe collor: ", 25);
+		Print.print("\nType the clothe collor: ", FINAL_PRINT);
 		builder.setClotheCollor(rd.nextLine());
 		
-		print("\nType the hair collor: ", 25);
+		Print.print("\nType the hair collor: ", FINAL_PRINT);
 		builder.setHairCollor(rd.nextLine());
 		
-		print("Great " + name +"! We're almost done creating your character", 25);
+		Print.print("Great " + name +"! We're almost done creating your character", FINAL_PRINT);
 		charging(5);
 		System.out.print("\nGenerating map");
 		charging(5);
@@ -79,20 +80,5 @@ public class Director {
 				e.printStackTrace();
 			}
 		}
-	}
-	 
-	public static void print(String txt, int sleep) {
-		
-		String[] text = txt.split("");
-		int textSize = text.length;
-		
-		for(int i=0;i<textSize;i++) {
-			System.out.print(text[i]);
-			
-			try {
-				Thread.sleep(sleep);
-			} catch(InterruptedException e){e.printStackTrace();}
-		}
-		System.out.println();
 	}
 }
