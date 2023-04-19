@@ -29,6 +29,16 @@ public class GamePlay {
 		}
 		
 		showMapContent(map, moveChoosed);
+		Print.print("Keep walking... press (w,a,s,d)", PRINT_CONST);
+		
+		do {
+			while(!verifyValidMovement(moveChoosed)) {
+				System.out.println("Press a valid option!");
+				moveChoosed = sc.nextLine().charAt(0);
+			}
+			showMapContent(map, moveChoosed);
+			Print.print("Keep walking...", PRINT_CONST);
+		} while (Boolean.TRUE);
 		
 	}
 
