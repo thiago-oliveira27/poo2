@@ -18,11 +18,6 @@ public class ClientMain {
 		
 		GameBoard._game_start_(myCharacter);
 		
-	
-	
 	}
-
-	
-	
 }
 	

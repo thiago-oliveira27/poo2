@@ -79,6 +79,7 @@ public class GamePlay {
 			switch (verifyMapBlockContent(map, x, y)) {			
 			case 1:
 				Print.print(GameMessages.FIGHT_MESSAGE,PRINT_CONST);
+				battle();
 				break;
 			case 2:
 				Print.print(GameMessages.KEY_MESSAGE,PRINT_CONST);
@@ -86,6 +87,7 @@ public class GamePlay {
 				break;
 			case 3:
 				Print.print(GameMessages.LIFE_MESSAGE,PRINT_CONST);
+				bonusLife();
 				break;
 			case 4:
 				Print.print(GameMessages.PLANT_MESSAGE, PRINT_CONST);				
@@ -151,18 +153,7 @@ public class GamePlay {
 			checkRemainingKills();
 
 		}
-		Print.print("You caused " + damageCaused.toString() + "of damage",PRINT_CONST);
-
-		while(damageCaused < 100 || damageSuffered < 100){
-
-		}
-
-		
-
-
-		
 	}
-
 
 	public static void checkRemainingKills() {
 		if(this.ENEMY_KILLED_COUNT < 3){
@@ -172,9 +163,7 @@ public class GamePlay {
 			Print.print("You just killed the last enemy, congrats! WINNER", PRINT_CONST);
 			System.exit(0);
 		}
-		
 	}
-
 
 	public static void checkSecretKeyNumber() {
 		int keys_remaining = 3 - this.SECRET_KEYS_COUNT;
@@ -185,5 +174,9 @@ public class GamePlay {
 			Print.print("You just found the last key! WINNER", PRINT_CONST);
 			System.exit(0);
 		}
+	}
+
+	public static void bonusLife(){
+		this.player_life += ((25*player_life)/100)
 	}
 }

@@ -20,7 +20,7 @@ public class GameBoard {
 		op = sc.nextLine().charAt(0);
 		
 		if(op == 'n') {
-			Print.print("Volte quando estiver preparado ...", 50);
+			Print.print("Come back when you get ready ...", 50);
 			System.exit(0);
 		}
 		
