@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import lab4.builder.objProduct.RPGCharacter;
+import lab4.gameboard.messages.GameMessages;
 import lab4.utils.Print;
 
 public class GamePlay {
@@ -15,7 +16,7 @@ public class GamePlay {
 		char moveChoosed = ' ';
 		
 		Print.print("Press (w) to move foward", PRINT_CONST);
-		Print.print("Press (a) to move the left", PRINT_CONST);
+		Print.print("Press (a) to move to the left", PRINT_CONST);
 		Print.print("Press (s) to move backward", PRINT_CONST);
 		Print.print("Press (d) to move to the right", PRINT_CONST);
 		
@@ -29,22 +30,8 @@ public class GamePlay {
 		
 		showMapContent(map, moveChoosed);
 		
-		
-	
-		
 	}
-	
-	public static boolean verifyValidMovement(char move){
-		
-		if (move == 'w'
-				|| move == 'a'
-				|| move == 's'
-				|| move == 'd') {
-			return true;		
-		}	
-		return false;
-	}
-	
+
 	public static int movePlayer(char x) {
 		
 		switch (x) {
@@ -74,41 +61,52 @@ public class GamePlay {
 		
 		if (movePlayer(moveChoosed)==0) {
 			
-			switch (verifyMapBlockContent(map, x, y)) {
+			switch (verifyMapBlockContent(map, x, y)) {			
 			case 1:
-				Print.print("WATCH OUT! An enemy appeared! Press (f) for fight or (r) to run",PRINT_CONST);
+				Print.print(GameMessages.FIGHT_MESSAGE,PRINT_CONST);
 				break;
 			case 2:
-				Print.print("What a lucky guy! You just found a Secret Key! With 3 of them you win the game!",PRINT_CONST);
+				Print.print(GameMessages.KEY_MESSAGE,PRINT_CONST);
 				break;
 			case 3:
-				Print.print("Nice! A mystic apple! (25% life regeneration",PRINT_CONST);
+				Print.print(GameMessages.LIFE_MESSAGE,PRINT_CONST);
 				break;
 			case 4:
-				Print.print("", y);
+				Print.print(GameMessages.PLANT_MESSAGE, PRINT_CONST);
 				
 				break;
 			default:
 				break;
-			}
-			
-		}
-		
+			}	
+		}	
 	}
-	
+
 	public static int verifyMapBlockContent(Object[][] mapItems, int x, int y) {
 		
-		if(mapItems[x][y].equals(RANDOM_MAP_STUFF.ENEMY)) {
+		if(mapItems[x][y].equals(RANDOM_MAP_STUFF.ENEMY.toString())) {
 			return 1;
-		}else if(mapItems[x][y].equals(RANDOM_MAP_STUFF.SECRET_KEY)) {
+		}else if(mapItems[x][y].equals(RANDOM_MAP_STUFF.SECRET_KEY.toString())) {
 			return 2;
-		}else if(mapItems[x][y].equals(RANDOM_MAP_STUFF.LIFE)) {
+		}else if(mapItems[x][y].equals(RANDOM_MAP_STUFF.LIFE.toString())) {
 			return 3;
-		}else if(mapItems[x][y].equals(RANDOM_MAP_STUFF.MAGIC_PLANT)) {
+		}else if(mapItems[x][y].equals(RANDOM_MAP_STUFF.MAGIC_PLANT.toString())) {
 			return 4;
 		} 
 		return 0;
 
 	}
+	
+	public static boolean verifyValidMovement(char move){	
+		if (move == 'w'
+				|| move == 'a'
+				|| move == 's'
+				|| move == 'd') {
+			return true;		
+		}	
+		return false;
+	}
+	public static void battle() {}
+	public static void checkSecretKeyNumber() {}
+	
 
 }
