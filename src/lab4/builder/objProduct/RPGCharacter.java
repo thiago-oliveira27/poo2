@@ -9,9 +9,10 @@ public class RPGCharacter{
 	private float height;
 	private String clotheCollor;
 	private String hairCollor;
-		
+	private float life;
+
 	public RPGCharacter(String name, String profession, String equipment, Tribe tribe, float height,
-			String clotheCollor, String hairCollor) {
+			String clotheCollor, String hairCollore) {
 		super();
 		this.name = name;
 		this.profession = profession;
@@ -78,6 +79,14 @@ public class RPGCharacter{
 		this.hairCollor = hairCollor;
 	}
 
+	public float getLife() {
+		return life;
+	}
+
+	public void setLife(float life) {
+		this.life = life;
+	}
+	
 	public void atack() {
 		System.out.println("Atacking...\n The enemy died");
 	}
