@@ -9,7 +9,7 @@ public class RPGCharacter{
 	private float height;
 	private String clotheCollor;
 	private String hairCollor;
-	private float life;
+	private float life = 100f;
 
 	public RPGCharacter(String name, String profession, String equipment, Tribe tribe, float height,
 			String clotheCollor, String hairCollore) {
