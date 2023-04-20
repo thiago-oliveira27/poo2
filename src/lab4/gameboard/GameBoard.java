@@ -4,7 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 import lab4.builder.objProduct.RPGCharacter;
-import lab4.utils.Print;
+import lab4.gameboard.images.GameImages;
+import lab4.utils.Util;
 
 public class GameBoard { 
 	
@@ -15,16 +16,23 @@ public class GameBoard {
 		Scanner sc = new Scanner(System.in);
 		
 		GameBoard.generatingMapItemsAndEnemies(mapItems);
-		char op;
+		char option = ' ';
 		System.out.println("\nAre you ready? (y/n)");
-		op = sc.nextLine().charAt(0);
+		option = sc.nextLine().charAt(0);
 		
-		if(op == 'n') {
-			Print.print("Come back when you get ready ...", 50);
+		while(option != 'y' && option != 'n' ) {	
+			System.out.println("Press a valid option!");
+			option = sc.nextLine().charAt(0);
+	}
+		
+		if(option == 'n') {
+			Util.print("Come back when you get ready ...", PRINT_CONST);
+			Util.print(GameImages.COMEBACK_READY_MESSAGE, 3);
 			System.exit(0);
 		}
-		
-		Print.print("You're in the middle of the map. Move yourself to explore around",PRINT_CONST);
+		Util.clearConsole();
+		Util.print(GameImages.MOUNTAIN_IMAGE, 3);
+		Util.print("You're in the middle of the map. Move yourself to explore around",PRINT_CONST);
 		GamePlay.play(character, mapItems);
 	}
 	
