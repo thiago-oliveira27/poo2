@@ -33,22 +33,20 @@ public class GameBoard {
 		Util.clearConsole();
 		Util.print(GameImages.MOUNTAIN_IMAGE, 3);
 		Util.print("You're in the middle of the map. Move yourself to explore around",PRINT_CONST);
+		
 		GamePlay.play(character, mapItems);
 	}
 	
 	public static void generatingMapItemsAndEnemies(Object[][] mapItems) {	
-		RANDOM_MAP_STUFF map_stuff = null;
-		Random random = new Random();
 		
+		Random random = new Random();	
 		for(int i = 0;i<100;i++) {
 			for(int j = 0;j<100;j++) {	
-										
-				int ram_item_number = random.nextInt(RANDOM_MAP_STUFF.size());
 				
+				int ram_item_number = random.nextInt(RANDOM_MAP_STUFF.size());
 				if(ram_item_number == 0) {
 					ram_item_number++;
 				}
-				
 				mapItems[i][j] = RANDOM_MAP_STUFF.getStringValue(ram_item_number);									
 			}
 		}		

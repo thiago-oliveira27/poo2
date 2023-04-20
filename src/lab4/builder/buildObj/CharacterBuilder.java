@@ -13,6 +13,7 @@ public class CharacterBuilder implements Builder{
 	private float height;
 	private String clotheCollor;
 	private String hairCollor;
+	private float life;
 	
 
 	@Override
@@ -56,7 +57,7 @@ public class CharacterBuilder implements Builder{
 	}
 	
 	public RPGCharacter getResult() {
-        return new RPGCharacter(name, profession, equipment, tribe, height, clotheCollor, hairCollor);
+        return new RPGCharacter(name, profession, equipment, tribe, height, clotheCollor, hairCollor, life);
     }
 
 				 

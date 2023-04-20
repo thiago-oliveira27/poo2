@@ -12,7 +12,7 @@ public class RPGCharacter{
 	private float life = 100f;
 
 	public RPGCharacter(String name, String profession, String equipment, Tribe tribe, float height,
-			String clotheCollor, String hairCollore) {
+			String clotheCollor,String hairCollor, float life) {
 		super();
 		this.name = name;
 		this.profession = profession;
@@ -21,6 +21,7 @@ public class RPGCharacter{
 		this.height = height;
 		this.clotheCollor = clotheCollor;
 		this.hairCollor = hairCollor;
+		this.life = life;
 	}
 	
 	public String getName() {

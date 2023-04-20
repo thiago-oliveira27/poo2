@@ -18,16 +18,13 @@ public abstract class Util {
 		}	
 	
 	public static void clearConsole() {
-	    try {
-	        if (System.getProperty("os.name").contains("Windows")) {
-	            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-	        } else {
-	            System.out.print("\033[H\033[2J");
-	            System.out.flush();
-	        }
-	    } catch (Exception ex) {
-	        // handle exception
-	    }
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		for(int i =0; i<7;i++) {
+			System.out.println();
+		}    
 	}
-
 }

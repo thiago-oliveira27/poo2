@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import lab4.builder.objProduct.RPGCharacter;
+import lab4.gameboard.images.GameImages;
 import lab4.gameboard.messages.GameMessages;
 import lab4.utils.Util;
 
@@ -73,29 +74,27 @@ public class GamePlay {
 		Random random = new Random();	
 		x = random.nextInt(100);
 		y = random.nextInt(100);
-		
-		if (movePlayer(moveChoosed)==0) {
-			
-			switch (verifyMapBlockContent(map, x, y)) {			
-			case 1:
-				Util.print(GameMessages.FIGHT_MESSAGE,PRINT_CONST);
-				battle();
-				break;
-			case 2:
-				Util.print(GameMessages.KEY_MESSAGE,PRINT_CONST);
-				checkSecretKeyNumber();
-				break;
-			case 3:
-				Util.print(GameMessages.LIFE_MESSAGE,PRINT_CONST);
-				bonusLife();
-				break;
-			case 4:
-				Util.print(GameMessages.PLANT_MESSAGE, PRINT_CONST);				
-				break;
-			default:
-				break;
-			}	
+
+		switch (verifyMapBlockContent(map, x, y)) {
+		case 1:
+			Util.print(GameMessages.FIGHT_MESSAGE, PRINT_CONST);
+			battle();
+			break;
+		case 2:
+			Util.print(GameMessages.KEY_MESSAGE, PRINT_CONST);
+			checkSecretKeyNumber();
+			break;
+		case 3:
+			Util.print(GameMessages.LIFE_MESSAGE, PRINT_CONST);
+			bonusLife();
+			break;
+		case 4:
+			Util.print(GameMessages.PLANT_MESSAGE, PRINT_CONST);
+			break;
+		default:
+			break;
 		}	
+	
 	}
 
 	public static int verifyMapBlockContent(Object[][] mapItems, int x, int y) {
@@ -160,8 +159,10 @@ public class GamePlay {
 		if(ENEMY_KILLED_COUNT < 3){
 			ENEMY_KILLED_COUNT++;
 			Util.print("Only " + kills_remaining + " kills remaining. Keep going fella!", PRINT_CONST);
+			Util.clearConsole();
 		} else {
 			Util.print("You just killed the last enemy, congrats! WINNER", PRINT_CONST);
+			Util.print(GameImages.WINNER_IMAGE, 3);
 			System.exit(0);
 		}
 	}
@@ -171,6 +172,7 @@ public class GamePlay {
 		int keys_remaining = 3 - SECRET_KEYS_COUNT;
 		if(SECRET_KEYS_COUNT < 3){	
 			Util.print("Only " + keys_remaining + " keys remaining. Keep going fella!", PRINT_CONST);
+			Util.clearConsole();
 		} else {
 			Util.print("You just found the last key! WINNER", PRINT_CONST);
 			System.exit(0);
