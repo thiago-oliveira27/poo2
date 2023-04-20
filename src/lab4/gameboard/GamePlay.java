@@ -10,13 +10,13 @@ import lab4.utils.Print;
 public class GamePlay {
 
 	private static int PRINT_CONST = 25;
-	private int SECRET_KEYS_COUNT = 0;
-	private int ENEMY_KILLED_COUNT = 0;
-	private float player_life;
+	private static int SECRET_KEYS_COUNT = 0;
+	private static int ENEMY_KILLED_COUNT = 0;
+	private static float player_life;
 
 	public static void play(RPGCharacter character, Object[][] map) {
 		
-		player_life = character.getLife;
+		player_life = character.getLife();
 
 		char moveChoosed = ' ';
 		
@@ -125,15 +125,15 @@ public class GamePlay {
 	public static void battle() {
 
 		Random random = new Random();	
-		private float damageCaused;
-		private float enemyRemainingLife;
-		private float damageSuffered;
-		private float enemyLife = 100f;
-		private char option = ' ';
-		private int kills_remaining = 3 - this.ENEMY_KILLED_COUNT;
+		 int damageCaused;
+		 int enemyRemainingLife;
+		 int damageSuffered;
+		 int enemyLife = 100;
+		 char option = ' ';
+		 int kills_remaining = 3 - ENEMY_KILLED_COUNT;
 
 
-		Print.print("Press (a) to atack the enemy");
+		Print.print("Press (a) to atack the enemy", PRINT_CONST);
 		Scanner sc = new Scanner(System.in);
 		option = sc.nextLine().charAt(0);
 
@@ -142,23 +142,24 @@ public class GamePlay {
 				option = sc.nextLine().charAt(0);
 		}
 
-		damageCaused = random.nextFloat(100.0);
+		damageCaused = random.nextInt(100);
 
 		if(damageCaused == 100.0){
-			Print.print("You killed him!");
+			Print.print("You killed him!", PRINT_CONST);
 			checkRemainingKills();
 		} else {
 			enemyRemainingLife = enemyLife - damageCaused;
-			Print.print("You caused " + damageCaused.toString() + "of damage",PRINT_CONST);
+			Print.print("You caused " + damageCaused + "of damage",PRINT_CONST);
 			checkRemainingKills();
 
 		}
 	}
 
 	public static void checkRemainingKills() {
-		if(this.ENEMY_KILLED_COUNT < 3){
-			this.ENEMY_KILLED_COUNT++
-			Print.print("Only " + keys_remaining.toString + "kills remaining. Keep going fella!", PRINT_CONST);
+		int kills_remaining = 3 - ENEMY_KILLED_COUNT;
+		if(ENEMY_KILLED_COUNT < 3){
+			ENEMY_KILLED_COUNT++;
+			Print.print("Only " + kills_remaining + "keys remaining. Keep going fella!", PRINT_CONST);
 		} else {
 			Print.print("You just killed the last enemy, congrats! WINNER", PRINT_CONST);
 			System.exit(0);
@@ -166,10 +167,10 @@ public class GamePlay {
 	}
 
 	public static void checkSecretKeyNumber() {
-		int keys_remaining = 3 - this.SECRET_KEYS_COUNT;
-		if(this.SECRET_KEYS_COUNT < 3){
-			this.SECRET_KEYS_COUNT++
-			Print.print("Only " + keys_remaining.toString + "keys remaining. Keep going fella!", PRINT_CONST);
+		int keys_remaining = 3 - SECRET_KEYS_COUNT;
+		if(SECRET_KEYS_COUNT < 3){
+			SECRET_KEYS_COUNT++;
+			Print.print("Only " + keys_remaining + "keys remaining. Keep going fella!", PRINT_CONST);
 		} else {
 			Print.print("You just found the last key! WINNER", PRINT_CONST);
 			System.exit(0);
@@ -177,6 +178,6 @@ public class GamePlay {
 	}
 
 	public static void bonusLife(){
-		this.player_life += ((25*player_life)/100)
+		player_life += ((25*player_life)/100);
 	}
 }
