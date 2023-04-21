@@ -13,28 +13,27 @@ public class Director {
 		
 		Locale.setDefault(Locale.US);
 		Scanner rd = new Scanner(System.in);
-		final int FINAL_PRINT = 4;
+		final int PRINT_CONST = 4;
 		
 		String name;
 		int tribe = 0;
 		
-		Util.print("Welcome to the game", FINAL_PRINT); 
+		Util.print("Welcome to the game", PRINT_CONST); 
 		
-		Util.print("Lets get started by creating your character", FINAL_PRINT);
+		Util.print("Lets get started by creating your character", PRINT_CONST);
 		System.out.print("Loading "); 
-		charging(10);
 
-		Util.print("\n\nType the character name: ", FINAL_PRINT);
+		Util.print("\n\nType the character name: ", PRINT_CONST);
 		builder.setName(name = rd.nextLine());		
 
-		Util.print("\nType the profession: ", FINAL_PRINT);
+		Util.print("\nType the profession: ", PRINT_CONST);
 		builder.setProfession(rd.nextLine());
 
-		Util.print("\nType the equipament you're going to use: ", FINAL_PRINT);
+		Util.print("\nType the equipament you're going to use: ", PRINT_CONST);
 		builder.setEquipment(rd.nextLine());
 		
 		Util.print("\nType the tribe you belong: "
-				 + "1 - FIRE, 2 - WATER, 3 - EARTH, 4 - AIR", FINAL_PRINT);
+				 + "1 - FIRE, 2 - WATER, 3 - EARTH, 4 - AIR", PRINT_CONST);
 		tribe = rd.nextInt();
 		
 			switch (tribe) {
@@ -52,33 +51,19 @@ public class Director {
 					break;
 			}
 		
-		Util.print("\nType your height: ", FINAL_PRINT);
+		Util.print("\nType your height: ", PRINT_CONST);
 		builder.setHeight(rd.nextFloat());
 		rd.nextLine();
-		Util.print("\nType the clothe collor: ", FINAL_PRINT);
+		Util.print("\nType the clothe collor: ", PRINT_CONST);
 		builder.setClotheCollor(rd.nextLine());
 		
-		Util.print("\nType the hair collor: ", FINAL_PRINT);
+		Util.print("\nType the hair collor: ", PRINT_CONST);
 		builder.setHairCollor(rd.nextLine());
 		
-		Util.print("Great " + name +"! We're almost done creating your character", FINAL_PRINT);
-		charging(5);
-		System.out.print("\nGenerating map");
-		charging(5);
-		System.out.print("\nSharping the equipment");
-		charging(5);
-		System.out.print("\nReviewing character atributes:");
-			
-	}
-	
-	public static void charging(int n) {	
-		for(int i=0;i<n;i++) {
-			System.out.print(".");
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+		Util.print("\nGreat " + name +"! We're almost done creating your character", PRINT_CONST);
+		Util.print("\nGenerating map", PRINT_CONST);
+		Util.print("\nSharping the equipment", PRINT_CONST);
+		Util.print("\nReviewing character atributes:", PRINT_CONST);
+		
+	}	
 }

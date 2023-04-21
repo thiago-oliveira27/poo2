@@ -27,4 +27,9 @@ public abstract class Util {
 			System.out.println();
 		}    
 	}
+	
+	public static void gameFinish() {
+		System.exit(0);
+	}
+	
 }
