@@ -37,32 +37,3 @@ public enum RANDOM_MAP_STUFF {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- public class RANDOM_MAP_STUFF {	
-	enum ItemsEnum {
-		ENEMY,
-		SECRET_KEY,
-		LIFE,
-		MAGIC_PLANT;
-    }	
-} 
- 
- */

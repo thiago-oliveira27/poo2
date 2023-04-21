@@ -86,11 +86,9 @@ public class GamePlay {
 		default:
 			break;
 		}
-
 	}
 
 	public static int verifyMapBlockContent(Object[][] mapItems, int x, int y) {
-
 		if (mapItems[x][y].equals(RANDOM_MAP_STUFF.ENEMY.toString())) {
 			return 1;
 		} else if (mapItems[x][y].equals(RANDOM_MAP_STUFF.SECRET_KEY.toString())) {
@@ -101,7 +99,6 @@ public class GamePlay {
 			return 4;
 		}
 		return 0;
-
 	}
 
 	public static boolean verifyValidMovement(char move) {
@@ -119,8 +116,8 @@ public class GamePlay {
 		float playerLife = 100f;
 		float damageSuffered = 0f;
 		char option = ' ';
-		int kills_remaining = 3 - ENEMY_KILLED_COUNT;
 		Scanner sc = new Scanner(System.in);
+		
 		while(true) {
 			
 			Util.print("Press (a) to atack the enemy", PRINT_CONST);
@@ -144,7 +141,7 @@ public class GamePlay {
 				damageSuffered = enemyAtacks();
 				playerLife -= damageSuffered;	
 				if(playerLife <= 0) {
-					Util.print("Noooo... he was stronger than you... better luck in the next life...", kills_remaining);
+					Util.print("Noooo... he was stronger than you... better luck in the next life...", PRINT_CONST);
 					Util.print(GameImages.YOU_DIED, 3);
 					Util.gameFinish();
 				}
@@ -162,8 +159,8 @@ public class GamePlay {
 
 	public static void checkRemainingKills() {
 		ENEMY_KILLED_COUNT++;
-		int kills_remaining = 3 - ENEMY_KILLED_COUNT;
-		if (ENEMY_KILLED_COUNT < 3) {	
+		int kills_remaining = 5 - ENEMY_KILLED_COUNT;
+		if (ENEMY_KILLED_COUNT < 5) {	
 			Util.print("Only " + kills_remaining + " kills remaining. Keep going fella!", PRINT_CONST);
 			Util.clearConsole();
 		} else {
