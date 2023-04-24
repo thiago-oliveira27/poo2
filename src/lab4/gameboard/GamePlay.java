@@ -10,21 +10,18 @@ import lab4.utils.Util;
 
 public class GamePlay {
 
-	private static int PRINT_CONST = 25;
+	private static int PRINT_CONST = 50;
 	private static int SECRET_KEYS_COUNT = 0;
 	private static int ENEMY_KILLED_COUNT = 0;
-	private static float player_life;
+	private static float PLAYER_LIFE;
 
 	public static void play(RPGCharacter character, Object[][] map) {
 
-		player_life = character.getLife();
+		PLAYER_LIFE = character.getLife();
 
 		char moveChoosed = ' ';
 
-		Util.print("Press (w) to move foward", PRINT_CONST);
-		Util.print("Press (a) to move to the left", PRINT_CONST);
-		Util.print("Press (s) to move backward", PRINT_CONST);
-		Util.print("Press (d) to move to the right", PRINT_CONST);
+		showOptions();
 
 		Scanner sc = new Scanner(System.in);
 		while (true) {
@@ -40,6 +37,13 @@ public class GamePlay {
 			Util.print("Keep walking... press (w,a,s,d)", PRINT_CONST);
 		}
 
+	}
+
+	private static void showOptions() {
+		Util.print("Press (w) to move foward", PRINT_CONST);
+		Util.print("Press (a) to move to the left", PRINT_CONST);
+		Util.print("Press (s) to move backward", PRINT_CONST);
+		Util.print("Press (d) to move to the right", PRINT_CONST);		
 	}
 
 	public static void movePlayer(char x) {
@@ -74,11 +78,11 @@ public class GamePlay {
 			break;
 		case 2:
 			Util.print(GameMessages.KEY_MESSAGE, PRINT_CONST);
-			//checkSecretKeyNumber();
+			checkSecretKeyNumber();
 			break;
 		case 3:
 			Util.print(GameMessages.LIFE_MESSAGE, PRINT_CONST);
-			//bonusLife();
+			bonusLife();
 			break;
 		case 4:
 			Util.print(GameMessages.PLANT_MESSAGE, PRINT_CONST);
@@ -115,6 +119,7 @@ public class GamePlay {
 		float enemyLife = 100f;
 		float playerLife = 100f;
 		float damageSuffered = 0f;
+		
 		char option = ' ';
 		Scanner sc = new Scanner(System.in);
 		
@@ -164,7 +169,10 @@ public class GamePlay {
 			Util.print("Only " + kills_remaining + " kills remaining. Keep going fella!", PRINT_CONST);
 			Util.clearConsole();
 		} else {
-			Util.print("You just killed the last enemy, congrats! WINNER", PRINT_CONST);
+			Util.print("You just killed the last enemy, congrats!", PRINT_CONST);
+			System.out.println("\n\n\n");
+			Util.print("W  I  N  N  E  R", PRINT_CONST);
+			System.out.println("\n\n\n");
 			Util.print(GameImages.WINNER_IMAGE, 3);
 			Util.gameFinish();
 		}
@@ -174,15 +182,19 @@ public class GamePlay {
 		SECRET_KEYS_COUNT++;
 		int keys_remaining = 3 - SECRET_KEYS_COUNT;
 		if (SECRET_KEYS_COUNT < 3) {
-			Util.print("Only " + keys_remaining + " keys remaining. Keep going fella!", PRINT_CONST);
+			Util.print("Only " + keys_remaining + " key(s) remaining. Keep going fella!", PRINT_CONST);
 			Util.clearConsole();
 		} else {
-			Util.print("You just found the last key! WINNER", PRINT_CONST);
+			Util.print("You just found the last key!", PRINT_CONST);
+			System.out.println("\n\n\n");
+			Util.print("W  I  N  N  E  R", PRINT_CONST);
+			System.out.println("\n\n\n");
+			Util.print(GameImages.WINNER_IMAGE, 3);
 			Util.gameFinish();
 		}
 	}
 
 	public static void bonusLife() {
-		player_life += ((25 * player_life) / 100);
+		PLAYER_LIFE += ((25 * PLAYER_LIFE) / 100);
 	}
 }

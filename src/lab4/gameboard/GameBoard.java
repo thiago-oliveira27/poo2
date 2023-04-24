@@ -9,7 +9,7 @@ import lab4.utils.Util;
 
 public class GameBoard { 
 	
-	private static int PRINT_CONST = 25;
+	private static int PRINT_CONST = 50;
 
 	public static void _game_start_(RPGCharacter character) {	
 		Object[][] mapItems = new String[100][100];

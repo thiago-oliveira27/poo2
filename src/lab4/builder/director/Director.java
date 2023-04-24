@@ -13,7 +13,7 @@ public class Director {
 		
 		Locale.setDefault(Locale.US);
 		Scanner rd = new Scanner(System.in);
-		final int PRINT_CONST = 4;
+		final int PRINT_CONST = 50;
 		
 		String name;
 		int tribe = 0;
@@ -21,7 +21,7 @@ public class Director {
 		Util.print("Welcome to the game", PRINT_CONST); 
 		
 		Util.print("Lets get started by creating your character", PRINT_CONST);
-		System.out.print("Loading "); 
+		System.out.print("Loading . . . . ."); 
 
 		Util.print("\n\nType the character name: ", PRINT_CONST);
 		builder.setName(name = rd.nextLine());		
@@ -61,8 +61,8 @@ public class Director {
 		builder.setHairCollor(rd.nextLine());
 		
 		Util.print("\nGreat " + name +"! We're almost done creating your character", PRINT_CONST);
-		Util.print("\nGenerating map", PRINT_CONST);
-		Util.print("\nSharping the equipment", PRINT_CONST);
+		Util.print("\nGenerating map . . . . .", PRINT_CONST);
+		Util.print("\nSharping the equipment . . . . .", PRINT_CONST);
 		Util.print("\nReviewing character atributes:", PRINT_CONST);
 		
 	}	

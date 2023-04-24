@@ -97,7 +97,7 @@ public class RPGCharacter{
 
 	@Override
 	public String toString() {
-		return "\n" + name + " | " + profession + " | Equipment: " + equipment + " | Tribe: "
+		return "\nName: " + name + " | Profession: " + profession + " | Equipment: " + equipment + " | Tribe: "
 				+ tribe + " | Height: " + height + " | ClotheCollor: " + clotheCollor + 
 				" | Hair Collor: " + hairCollor;
 	}
